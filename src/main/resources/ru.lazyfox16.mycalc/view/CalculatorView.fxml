@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+
+<?import ru.lazyfox16.mycalc.util.NotFocusTextField?>
+<AnchorPane stylesheets="@../styles/CalculatorStyle.css" prefHeight="400" prefWidth="350" xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.lazyfox16.mycalc.controller.CalculatorController">
+    <BorderPane AnchorPane.bottomAnchor="2" AnchorPane.leftAnchor="2" AnchorPane.rightAnchor="2" AnchorPane.topAnchor="2">
+        <top>
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="25" prefHeight="50" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="50" prefHeight="100" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <NotFocusTextField fx:id="input" editable="false" focusTraversable="false" maxWidth="Infinity" maxHeight="Infinity"/>
+                <NotFocusTextField fx:id="output" editable="false" focusTraversable="false" maxWidth="Infinity" maxHeight="Infinity" GridPane.rowIndex="1"/>
+            </GridPane>
+        </top>
+        <center>
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <Button fx:id="btnClear" id="ClearButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#clearFields" text="C"/>
+                <Button fx:id="btnPow" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="^" text="^" GridPane.columnIndex="1"/>
+                <Button fx:id="btnMod" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="\%" text="\%" GridPane.columnIndex="2"/>
+                <Button fx:id="btnDivide" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="/" text="&#247;" GridPane.columnIndex="3"/>
+
+                <Button fx:id="btnDigit7" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="7" text="7" GridPane.rowIndex="1"/>
+                <Button fx:id="btnDigit8" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="8" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Button fx:id="btnDigit9" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="9" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Button fx:id="btnMultiply" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="*" text="&#215;" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Button fx:id="btnDigit4" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="4" text="4" GridPane.rowIndex="2"/>
+                <Button fx:id="btnDigit5" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="5" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Button fx:id="btnDigit6" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="6" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <Button fx:id="btnMinus" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="-" text="&#8722;" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Button fx:id="btnDigit1" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="1" text="1" GridPane.rowIndex="3"/>
+                <Button fx:id="btnDigit2" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="2" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Button fx:id="btnDigit3" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="3" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <Button fx:id="btnPlus" id="OperatorButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="+" text="&#43;" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+
+                <Button fx:id="btnBrackets" id="BracketsButton" focusTraversable="false" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onAction="#setSmartBrackets" accessibleText="()" text="()" GridPane.rowIndex="4"/>
+                <Button fx:id="btnDigit0" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Button fx:id="btnDot" id="NumberButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#printSymbol" accessibleText="." text="." GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                <Button fx:id="btnDel" id="DelButton" maxWidth="Infinity" maxHeight="Infinity" mnemonicParsing="false" onKeyTyped="#keyTyped" onAction="#deleteLast" text="&#9003;" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+            </GridPane>
+        </center>
+    </BorderPane>
+</AnchorPane>
