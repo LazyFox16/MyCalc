@@ -46,11 +46,11 @@ public class CalculatorController implements Initializable {
                 btnPlus, btnMinus, btnMultiply, btnDivide, btnMod, btnPow,
                 btnDot, btnBrackets, btnClear, btnDel));
 
-        input.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!calculator.isValidInput(newValue)) {
+        input.textProperty().addListener((observable, oldValue, newValue) -> { // метод,который отвечает за ввод текста
+            if (!calculator.isValidInput(newValue)) { // если текст не проходит валидатор, то остается как есть
                 input.setText(oldValue);
             } else if (calculator.canEvaluate(newValue)) {
-                calc();
+                calc(); //иначе ведется подсчет и выводится на экран
             } else {
                 output.setText("");
             }
@@ -58,18 +58,18 @@ public class CalculatorController implements Initializable {
     }
 
     @FXML
-    private void keyTyped(KeyEvent e) {
+    private void keyTyped(KeyEvent e) { // метод,отвечающий за вызов кнопки
         for (Button button : buttons) {
-            if (button.getAccessibleText().contains(e.getCharacter())) {
+            if (button.getAccessibleText().contains(e.getCharacter())) { // получаем текст кнопки и проверяем,что это символ
                 callButton(button);
             }
         }
     }
 
     @FXML
-    private void printSymbol(ActionEvent e) {
-        Button button = (Button) e.getSource();
-        input.appendText(button.getAccessibleText());
+    private void printSymbol(ActionEvent e) { // печатаем символ
+        Button button = (Button) e.getSource(); //что хранится в этой кнопке
+        input.appendText(button.getAccessibleText()); // добавляем текст в строку, полученный из кнопки
     }
 
     @FXML
@@ -87,19 +87,19 @@ public class CalculatorController implements Initializable {
 
     @FXML
     private void setSmartBrackets() {
-        if (calculator.isRightAllowed(input.getText())) {
+        if (calculator.isRightAllowed(input.getText())) { //если есть правая скобка, то печатаем левую и наоборот
             input.appendText(")");
         } else {
             input.appendText("(");
         }
     }
 
-    private void callButton(Button button) {
-        button.arm();
-        button.fire();
+    private void callButton(Button button) { //вызов кнопки
+        button.arm(); //выделяет кнопку,но не запускает
+        button.fire(); //нажатие кнопки
         PauseTransition pause = new PauseTransition(Duration.seconds(0.1));
-        pause.setOnFinished(e -> button.disarm());
-        pause.play();
+        pause.setOnFinished(e -> button.disarm()); //отпускает кнопку
+        pause.play(); //воспроизведение анимации
     }
 
     private void calc() {

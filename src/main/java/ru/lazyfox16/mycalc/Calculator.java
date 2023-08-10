@@ -30,7 +30,7 @@ public class Calculator {
         return perfomer.perform(postfixExpr);
     }
 
-    public boolean isRightAllowed(String expr) {
+    public boolean isRightAllowed(String expr) { // проверяем наличие правой скобки
         return validator.checkBrackets(expr);
     }
 
